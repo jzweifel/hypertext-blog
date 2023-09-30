@@ -5,6 +5,7 @@
   "scripts": {
     "prepare": "husky install",
     "dev": "bun run --watch src/main.ts",
+    "start": "bun run src/main.ts",
     "format:check": "prettier --check .",
     "format": "prettier --write . --list-different"
   },
