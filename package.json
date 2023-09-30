@@ -3,6 +3,7 @@
   "module": "src/main.ts",
   "type": "module",
   "scripts": {
+    "prepare": "husky install",
     "dev": "bun run --watch src/main.ts",
     "format:check": "prettier --check .",
     "format": "prettier --write . --list-different"
@@ -10,6 +11,8 @@
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
     "bun-types": "^1.0.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
     "prettier": "^3.0.3"
   },
   "peerDependencies": {
