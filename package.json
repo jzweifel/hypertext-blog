@@ -2,10 +2,16 @@
   "name": "hypertext-blog",
   "module": "src/main.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/main.ts"
+  },
   "devDependencies": {
     "bun-types": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "elysia": "^0.7.15"
   }
 }
