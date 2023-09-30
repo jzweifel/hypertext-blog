@@ -13,12 +13,14 @@
     "bun-types": "^1.0.3",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "typed-html": "^3.0.1"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@elysiajs/html": "^0.7.0",
     "elysia": "^0.7.15"
   }
 }
