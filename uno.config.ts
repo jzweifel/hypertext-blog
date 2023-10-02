@@ -30,8 +30,6 @@ export default defineConfig({
     [
       /^bg-color-(.*)$/,
       ([, c], { theme }) => {
-        console.log(c);
-        //   console.log(theme.colors);
         if (c && theme.colors[c])
           return { ["background-color"]: theme.colors[c] };
       },
