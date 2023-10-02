@@ -5,7 +5,9 @@ import { ctx } from "../context";
 export const index = new Elysia().use(ctx).get("/", async ({ html }) => {
   return html(
     <BaseHtml>
-      <div>Welcome to a blog thing.</div>
+      <h1 class="text-4xl font-bold color-black" safe>
+        A blog thing.
+      </h1>
     </BaseHtml>,
   );
 });
