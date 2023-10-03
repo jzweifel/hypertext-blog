@@ -4,8 +4,10 @@
   "type": "module",
   "scripts": {
     "prepare": "husky install",
-    "dev": "concurrently \"bun run --hot src/main.ts\" \"bun run uno:dev\"",
+    "dev": "concurrently \"bun run --hot --inspect src/main.ts\" \"bun run uno:dev\"",
     "start": "bun run uno && bun run src/main.ts",
+    "db:migrate": "bunx prisma migrate dev",
+    "db:generate": "bunx prisma generate",
     "uno": "bunx unocss",
     "uno:dev": "bunx unocss --watch",
     "format:check": "prettier --check .",
@@ -24,10 +26,22 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@bogeychan/elysia-logger": "^0.0.11",
     "@elysiajs/html": "^0.7.0",
     "@elysiajs/static": "^0.7.1",
+    "@libsql/client": "^0.3.5",
+    "@lucia-auth/adapter-prisma": "^3.0.2",
+    "@lucia-auth/oauth": "^3.3.0",
+    "@prisma/adapter-libsql": "^0.4.2",
+    "@prisma/client": "turso",
+    "@t3-oss/env-core": "^0.6.1",
+    "@tlscipher/holt": "^1.1.0",
     "@unocss/transformer-variant-group": "0.55.7",
     "elysia": "^0.7.15",
-    "unocss": "0.55.7"
+    "lucia": "^2.7.1",
+    "pino-pretty": "^10.2.0",
+    "prisma": "^5.3.1",
+    "unocss": "0.55.7",
+    "zod": "^3.22.2"
   }
 }
