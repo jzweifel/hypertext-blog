@@ -15,3 +15,8 @@ primary_region = "ord"
   auto_start_machines = true
   min_machines_running = 0
   processes = ["app"]
+
+[env]
+  NODE_ENV="production"
+  LOG_LEVEL="info"
+  HOST_URL="https://hypertext-blog.fly.dev"
