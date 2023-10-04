@@ -6,6 +6,7 @@
     "prepare": "husky install",
     "dev": "concurrently \"bun run --hot --inspect src/main.ts\" \"bun run uno:dev\"",
     "start": "bun run uno && bun run src/main.ts",
+    "test": "xss-scan",
     "db:migrate": "bunx prisma migrate dev",
     "db:generate": "bunx prisma generate",
     "uno": "bunx unocss",
@@ -20,15 +21,15 @@
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
-    "typed-html": "^3.0.1"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typed-html": "^3.0.1",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "@bogeychan/elysia-logger": "^0.0.11",
     "@elysiajs/html": "^0.7.0",
     "@elysiajs/static": "^0.7.1",
+    "@kitajs/html": "^3.0.0",
+    "@kitajs/ts-html-plugin": "^1.2.0",
     "@lucia-auth/adapter-prisma": "^3.0.2",
     "@lucia-auth/oauth": "^3.3.0",
     "@prisma/client": "^5.3.1",

@@ -7,9 +7,7 @@ export const index = new Elysia()
   .get("/", async ({ html, session }) => {
     return html(
       <BaseHtml>
-        <h1 class="text-4xl font-bold color-black" safe>
-          A blog thing.
-        </h1>
+        <h1 class="text-4xl font-bold color-black">A blog thing.</h1>
         {session ? (
           <>
             <p class="text-2xl font-bold text-gray-800" safe>
