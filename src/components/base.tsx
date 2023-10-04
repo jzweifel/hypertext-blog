@@ -1,6 +1,6 @@
-import * as elements from "typed-html";
+import Html from "@kitajs/html";
 
-export const BaseHtml = ({ children }: elements.Children) => (
+export const BaseHtml = ({ children }: Html.PropsWithChildren) => (
   <html>
     <head>
       <meta charset="UTF-8" />

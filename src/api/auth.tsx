@@ -4,7 +4,7 @@ import { parseCookie, serializeCookie } from "lucia/utils";
 import { githubAuth } from "../auth";
 import { config } from "../config";
 import { ctx } from "../context";
-import { redirect, syncIfLocal } from "../lib";
+import { redirect } from "../lib";
 
 export const authController = new Elysia({
   prefix: "/auth",
@@ -94,8 +94,6 @@ export const authController = new Elysia({
         attributes: {},
       });
       const sessionCookie = auth.createSessionCookie(session);
-
-      await syncIfLocal();
 
       set.headers["Set-Cookie"] = sessionCookie.serialize();
 

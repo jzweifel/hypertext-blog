@@ -1,3 +1,5 @@
+import { createPinoLogger } from "@bogeychan/elysia-logger";
+import pretty from "pino-pretty";
 import { config } from "../config";
 
 export function redirect(
@@ -23,8 +25,15 @@ export function redirect(
   }
 }
 
-export async function syncIfLocal() {
-  //   if (config.env.DATABASE_CONNECTION_TYPE === "local-replica") {
-  //     await client.sync();
-  //   }
+const stream = pretty({
+  colorize: true,
+});
+
+export const loggerConfig =
+  config.env.NODE_ENV === "development"
+    ? { level: config.env.LOG_LEVEL, stream }
+    : { level: config.env.LOG_LEVEL };
+
+export function createLogger() {
+  return createPinoLogger(loggerConfig);
 }
