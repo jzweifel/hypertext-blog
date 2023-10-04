@@ -13,8 +13,14 @@ model User {
   name         String
   email        String    @unique
   picture      String
+  roles        Role[]    @default([USER])
   key          Key[]
   auth_session Session[]
+}
+
+enum Role {
+  USER
+  ADMIN
 }
 
 model Session {

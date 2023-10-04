@@ -11,6 +11,7 @@ export const BaseHtml = ({ children }: Html.PropsWithChildren) => (
       <script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
       <script src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"></script>
       <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
+      <script src="/public/tinymce/js/tinymce/tinymce.min.js"></script>
       <style>
         {`
           [data-loading] {

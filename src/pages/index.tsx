@@ -1,5 +1,6 @@
 import { Elysia } from "elysia";
 import { BaseHtml } from "../components/base";
+import { PostsList } from "../components/posts";
 import { ctx } from "../context";
 
 export const index = new Elysia()
@@ -29,6 +30,7 @@ export const index = new Elysia()
             Sign In
           </a>
         )}
+        <PostsList />
       </BaseHtml>,
     );
   });

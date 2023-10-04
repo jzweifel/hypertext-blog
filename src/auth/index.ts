@@ -48,6 +48,7 @@ export const auth = lucia({
     picture: data.picture,
     email: data.email,
     id: data.id,
+    roles: data.roles,
   }),
 });
 
