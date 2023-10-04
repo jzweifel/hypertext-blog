@@ -35,3 +35,9 @@ model Key {
 
   @@index([user_id])
 }
+
+model Post {
+  id              String @id @unique
+  title           String
+  body            String
+}
