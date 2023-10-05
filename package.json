@@ -27,6 +27,7 @@
     "@bogeychan/elysia-logger": "^0.0.11",
     "@elysiajs/html": "^0.7.0",
     "@elysiajs/static": "^0.7.1",
+    "@iconify-json/octicon": "^1.1.49",
     "@kitajs/html": "^3.0.0",
     "@kitajs/ts-html-plugin": "^1.2.0",
     "@lucia-auth/adapter-prisma": "^3.0.2",

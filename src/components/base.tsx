@@ -25,9 +25,20 @@ export const BaseHtml = ({ children }: Html.PropsWithChildren) => (
       />
       <link rel="stylesheet" href="/public/dist/unocss.css" />
     </head>
-    <body hx-boost="true" hx-ext="loading-states" class="font-sans">
-      <div class="flex h-screen w-full bg-color-very-blue py-4 px-4">
+    <body
+      hx-boost="true"
+      hx-ext="loading-states"
+      class="bg-color-very-blue py-4 px-4"
+    >
+      <div class="flex min-h-screen w-full">
         <div class="flex flex-1 flex-col items-center bg-color-is-it-grey mx-auto p-4 max-w-screen-xl rounded-2xl border-5 border-color-almost-white border-solid brutal-shadow">
+          <div class="flex border-b border-black w-full">
+            <a href="/">
+              <h1 class="text-5xl font-bold color-black divide-y font-sans">
+                A blog thing.
+              </h1>
+            </a>
+          </div>
           {children}
         </div>
       </div>

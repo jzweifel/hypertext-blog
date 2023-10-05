@@ -12,11 +12,11 @@ export const postsController = new Elysia({
     const data = await db.post.findMany();
     log.debug({ message: "Found posts!", data });
     return (
-      <div>
+      <>
         {data.map((post) => (
           <Post {...post} />
         ))}
-      </div>
+      </>
     );
   })
   .post(

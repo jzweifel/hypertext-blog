@@ -8,28 +8,31 @@ export const index = new Elysia()
   .get("/", async ({ html, session }) => {
     return html(
       <BaseHtml>
-        <h1 class="text-4xl font-bold color-black">A blog thing.</h1>
-        {session ? (
-          <>
-            <p class="text-2xl font-bold text-gray-800" safe>
-              Hi! {session.user.name}
-            </p>
+        <div class="w-full mt-1">
+          {session ? (
+            <>
+              <p class="text-gray-800 float-left" safe>
+                We've been waiting for you, {session.user.name}.
+              </p>
+              <a
+                href="/api/auth/signout"
+                class="float-right i-octicon-sign-out text-white transition duration-200 hover:bg-black"
+              ></a>
+              {session.user.roles.includes("ADMIN") ? (
+                <a
+                  href="/admin/new-post"
+                  class="float-right i-octicon-diff-added text-white transition duration-200 hover:bg-black"
+                ></a>
+              ) : null}
+            </>
+          ) : (
             <a
-              href="/api/auth/signout"
-              class="mt-4 rounded-lg bg-blue-500 px-4 py-2 text-white transition duration-200 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50"
-            >
-              Sign Out
-            </a>
-          </>
-        ) : (
-          <a
-            href="/api/auth/login/github"
-            hx-boost="false"
-            class="mt-4 rounded-lg bg-blue-500 px-4 py-2 text-white transition duration-200 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50"
-          >
-            Sign In
-          </a>
-        )}
+              href="/api/auth/login/github"
+              hx-boost="false"
+              class="float-right i-octicon-sign-in text-white transition duration-200 hover:bg-black"
+            ></a>
+          )}
+        </div>
         <PostsList />
       </BaseHtml>,
     );
