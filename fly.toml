@@ -7,6 +7,12 @@ app = "hypertext-blog"
 primary_region = "ord"
 
 [build]
+  dockerfile = "Dockerfile"
+  ignorefile = ".dockerignore"
+  build-target = "final"
+
+[deploy]
+  strategy = "rolling"
 
 [http_service]
   internal_port = 3000
@@ -15,6 +21,13 @@ primary_region = "ord"
   auto_start_machines = true
   min_machines_running = 0
   processes = ["app"]
+
+[[http_service.checks]]
+  grace_period = "10s"
+  interval = "30s"
+  method = "GET"
+  timeout = "5s"
+  path = "/"
 
 [env]
   NODE_ENV="production"

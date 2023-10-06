@@ -39,7 +39,7 @@ COPY --link . .
 RUN npx prisma generate
 
 # Final stage for app image
-FROM base
+FROM base as final
 
 # Copy built application
 COPY --from=build /app /app

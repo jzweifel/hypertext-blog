@@ -1,4 +1,17 @@
 cockroach-data
+.dockerignore
+.gitignore
+.env
+.toolversions
+.github
+.husky
+.vscode
+docker-compose.yml
+Dockerfile
+fly-toml
+lint-staged.config.cjs
+prettier.config.cjs
+README.md
 
 # Based on https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore
 
