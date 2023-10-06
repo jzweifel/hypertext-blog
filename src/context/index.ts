@@ -4,6 +4,7 @@ import { HoltLogger } from "@tlscipher/holt";
 import { Elysia } from "elysia";
 import { auth } from "../auth";
 import { config } from "../config";
+import { client as db } from "../db";
 import { loggerConfig } from "../lib";
 
 export const ctx = new Elysia({
@@ -20,6 +21,7 @@ export const ctx = new Elysia({
     return { session };
   })
   .use(logger(loggerConfig))
+  .decorate("db", db)
   .use(
     // @ts-expect-error
     config.env.NODE_ENV === "development"
