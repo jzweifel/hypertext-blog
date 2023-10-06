@@ -20,6 +20,11 @@ export const BaseHtml = ({ children }: Html.PropsWithChildren) => (
           });
       `}
       </script>
+      <script
+        async
+        data-id="101429098"
+        src="//static.getclicky.com/js"
+      ></script>
       <script src="https://unpkg.com/htmx.org@1.9.5"></script>
       <script>htmx.config.globalViewTransitions = true;</script>
       <script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
