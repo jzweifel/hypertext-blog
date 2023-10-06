@@ -1,3 +1,4 @@
+import "./o11y";
 import { staticPlugin } from "@elysiajs/static";
 import { Elysia } from "elysia";
 import { api } from "./api/*";
