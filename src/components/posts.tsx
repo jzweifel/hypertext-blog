@@ -1,7 +1,9 @@
 import Html from "@kitajs/html";
+import type { PrismaClient } from "@prisma/client";
 
-export function PostsList() {
-  return <div hx-get="/api/posts" hx-swap="innerHTML" hx-trigger="load" />;
+export async function PostsList({ db }: { db: PrismaClient }) {
+  const posts = await db.post.findMany();
+  return posts.map((post) => Post(post));
 }
 
 export function Post({ title, body }: { title: string; body: string }) {

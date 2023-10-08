@@ -6,11 +6,13 @@ import { ctx } from "../context";
 
 export const index = new Elysia()
   .use(ctx)
-  .get("/", async ({ html, session }) => {
+  .get("/", async ({ html, session, db }) => {
+    // lol this works but maybe we should find another way
+    const postsLists = await PostsList({ db });
     return html(
       <BaseHtml>
         <Header session={session} />
-        <PostsList />
+        {postsLists}
       </BaseHtml>,
     );
   });
