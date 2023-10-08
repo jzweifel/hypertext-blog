@@ -7,7 +7,17 @@ import { pages } from "./pages/*";
 
 const log = createLogger();
 
-const app = new Elysia().use(staticPlugin()).use(api).use(pages).listen(3000);
+const app = new Elysia()
+  .use(
+    staticPlugin({
+      headers: {
+        "Cache-Control": "max-age=3600",
+      },
+    }),
+  )
+  .use(api)
+  .use(pages)
+  .listen(3000);
 
 export type App = typeof app;
 
