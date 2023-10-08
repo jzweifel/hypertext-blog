@@ -1,5 +1,6 @@
 import Elysia from "elysia";
 import { BaseHtml } from "../../components/base";
+import { Header } from "../../components/header";
 import { ctx } from "../../context";
 
 export const newPost = new Elysia()
@@ -13,6 +14,7 @@ export const newPost = new Elysia()
 
     return html(
       <BaseHtml>
+        <Header session={session} />
         <script>{`
       tinymce.init({
         selector: '#new-post'
