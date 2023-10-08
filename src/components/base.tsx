@@ -16,7 +16,6 @@ export const BaseHtml = ({ children }: Html.PropsWithChildren) => (
             dsn: "https://a0654b7e9a0d42e0dd8f25332ae9ca6b@o4506004695482368.ingest.sentry.io/4506004856373248",
             replaysSessionSampleRate: 1.0,
             replaysOnErrorSampleRate: 1.0,
-            integrations: [new Sentry.Replay()],
           });
       `}
       </script>
