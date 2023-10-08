@@ -17,12 +17,16 @@ export const index = new Elysia()
               <a
                 href="/api/auth/signout"
                 class="float-right i-octicon-sign-out text-white transition duration-200 hover:bg-black"
-              ></a>
+              >
+                Log Out
+              </a>
               {session.user.roles.includes("ADMIN") ? (
                 <a
                   href="/admin/new-post"
                   class="float-right i-octicon-diff-added text-white transition duration-200 hover:bg-black"
-                ></a>
+                >
+                  New Post
+                </a>
               ) : null}
             </>
           ) : (
