@@ -53,6 +53,12 @@ export default defineConfig({
         if (c && theme.colors[c]) return { color: theme.colors[c] };
       },
     ],
+    [
+      /^text-color-(.*)$/,
+      ([, c], { theme }) => {
+        if (c && theme.colors[c]) return { color: theme.colors[c] };
+      },
+    ],
     ["brutal-shadow", { ["box-shadow"]: "0.5rem 0.5rem black" }],
   ],
   transformers: [transformerVarientGroup()],
