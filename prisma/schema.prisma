@@ -9,7 +9,7 @@ datasource db {
 }
 
 model User {
-  id           String    @id @default(uuid())
+  id           String    @id @default("") // lucia will generate
   name         String
   email        String    @unique
   picture      String
@@ -24,7 +24,7 @@ enum Role {
 }
 
 model Session {
-  id             String @id @unique
+  id             String @id @unique @default("") // lucia will generate
   user_id        String
   active_expires BigInt
   idle_expires   BigInt
@@ -34,7 +34,7 @@ model Session {
 }
 
 model Key {
-  id              String  @id @unique
+  id              String  @id @unique @default("") // lucia will generate
   hashed_password String?
   user_id         String
   user            User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
@@ -43,7 +43,15 @@ model Key {
 }
 
 model Post {
-  id              String @id @unique
-  title           String
-  body            String
+  id         String   @id @unique @default("") // uuidv7 provided in src/db
+  title      String
+  body       String
+  createdAt  DateTime @default(now())
+  tags       Tag[]
+}
+
+model Tag {
+  id    String @id @unique @default("") // uuidv7 provided in src/db
+  name  String
+  posts Post[]
 }

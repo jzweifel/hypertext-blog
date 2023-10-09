@@ -1,5 +1,4 @@
 import Elysia, { t } from "elysia";
-import { uuidv7 } from "uuidv7";
 import { ctx } from "../context";
 import { client as db } from "../db";
 
@@ -19,7 +18,6 @@ export const postsController = new Elysia({
       log.debug({ message: "Creating a post!", body });
       await db.post.create({
         data: {
-          id: uuidv7(),
           title: "foobar",
           body: body.body,
         },
