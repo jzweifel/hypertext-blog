@@ -1,15 +1,45 @@
 import Html from "@kitajs/html";
-import type { PrismaClient } from "@prisma/client";
+import type { Prisma, PrismaClient } from "@prisma/client";
 
-export async function PostsList({ db }: { db: PrismaClient }) {
-  const posts = await db.post.findMany({
+export async function PostsList({
+  db,
+  limit,
+  cursor,
+}: {
+  db: PrismaClient;
+  limit?: number;
+  cursor?: string;
+}) {
+  const criteria: Prisma.PostFindManyArgs = {
     orderBy: [
       {
         createdAt: "desc",
       },
     ],
-  });
-  return posts.map((post) => Post(post));
+  };
+  if (limit) criteria.take = limit;
+  if (cursor) {
+    criteria.skip = 1; // skip the cursor
+    criteria.cursor = {
+      id: cursor,
+    };
+  }
+  const posts = await db.post.findMany(criteria);
+  const postsHtmlElements = posts.map((post) => Post(post));
+  const triggerDiv = (
+    <div
+      hx-get={`/api/posts?cursor=${posts[4]?.id}`}
+      hx-trigger="revealed"
+      hx-swap="afterend"
+    ></div>
+  );
+
+  // one extra request if at the end of the list..
+  // see if we can make it better later
+  if (posts.length > 0) {
+    postsHtmlElements.push(triggerDiv);
+  }
+  return postsHtmlElements;
 }
 
 export function Post({

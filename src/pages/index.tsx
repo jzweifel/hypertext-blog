@@ -8,7 +8,7 @@ export const index = new Elysia()
   .use(ctx)
   .get("/", async ({ html, session, db }) => {
     // lol this works but maybe we should find another way
-    const postsLists = await PostsList({ db });
+    const postsLists = await PostsList({ db, limit: 5 });
     return html(
       <BaseHtml>
         <Header session={session} />
