@@ -20,7 +20,7 @@ export const post = new Elysia().use(ctx).get(
     }
 
     return html(
-      <BaseHtml>
+      <BaseHtml subtitle={post.title}>
         <Header session={session} />
         <Post {...post} />
       </BaseHtml>,

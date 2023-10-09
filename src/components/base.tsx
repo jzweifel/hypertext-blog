@@ -1,11 +1,14 @@
 import Html from "@kitajs/html";
 
-export const BaseHtml = ({ children }: Html.PropsWithChildren) => (
+export const BaseHtml = ({
+  children,
+  subtitle,
+}: Html.PropsWithChildren<{ subtitle?: string }>) => (
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>A blog thing</title>
+      <title safe>A blog thing {subtitle ? ` - ${subtitle}` : ``}</title>
       <script
         src="https://js.sentry-cdn.com/a0654b7e9a0d42e0dd8f25332ae9ca6b.min.js"
         crossorigin="anonymous"
