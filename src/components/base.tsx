@@ -45,6 +45,9 @@ export const BaseHtml = ({
         href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css"
       />
       <link rel="stylesheet" href="/public/dist/unocss.css" />
+      <link href="https://github.com/jzweifel" rel="me" />
+      <link href="https://blog.jacobzweifel.com/" rel="me" />
+      <link href="https://mastodon.zweifel.cloud/@jacob" rel="me" />
     </head>
     <body
       hx-boost="true"
